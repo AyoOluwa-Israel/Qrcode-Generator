@@ -74,7 +74,8 @@ function App() {
                   value={values.url}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  className="border-[1px] border-grey-500 h-[50px] rounded-[5px] my-2 pl-[1em] focus:outline-none "
+                  className="border-[1px] border-grey-500 h-[50px] rounded-[5px] my-2 pl-[1em] focus:outline-none text-[12px] font-light"
+
                 />
                 <p className="text-[12px] text-red-500 focus:outline-none font-light">
                   {getError("url")}
@@ -88,7 +89,7 @@ function App() {
                   value={values.size}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  className="border-[1px] border-grey-500 h-[50px] rounded-[5px] my-2 pl-[1em]"
+                  className="border-[1px] border-grey-500 h-[50px] rounded-[5px] my-2 pl-[1em] text-[12px] font-light"
                 >
                   <option value="100">100 x 100</option>
                   <option value="200">200 x 200</option>
@@ -120,7 +121,14 @@ function App() {
       <div className="w-[80%] mx-auto mt-[2.5em] pb-[2em]">
         <p className="font-light">Generated QR Code is:</p>
         {QRUrl ? (
-          <img src={QRUrl} alt="QRUrl" className="mt-[1em]" />
+          <>
+            <img src={QRUrl} alt="QRUrl" className="mt-[1em]" />
+            <a href={QRUrl} download="qrcode">
+              <button className="h-[50px] rounded-[5px] bg-[#B5B2B0] sm:w-[300px] w-[100%] mt-[2em] text-[14px] font-light">
+                Download
+              </button>
+            </a>
+          </>
         ) : (
           <div className="h-[300px] w-[300px] bg-[#B5B2B0] text-white font-light text-[14px] flex items-center justify-center p-[2em] text-center mt-[1em] rounded sm:mx-0 mx-auto">
             Input Your URL Above , and Click Generate
